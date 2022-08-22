@@ -14,7 +14,7 @@ public class ListaEncadeada<T> implements Lista<T>{
 	//adiciona valor em uma posição especifica
 	@Override
 	public void add(T info, int pos) {
-		if(pos<0 || pos> this.tamanho-1)
+		if(pos<0 || pos> this.tamanho)
 			throw new IllegalArgumentException("Por favor digite uma posicao valida");
 		
 		No nodoAux = new No(info);
@@ -40,13 +40,7 @@ public class ListaEncadeada<T> implements Lista<T>{
 	//adiciona no final
 	@Override
 	public void add(T info) {
-		No nodoAux = new No(info);
-		//lista vazia
-		if(this.inicio==null) this.inicio = nodoAux;
-		else this.fim.prox = nodoAux;
-		
-		this.fim = nodoAux;
-		this.tamanho++;
+		this.add(info, this.tamanho);
 	}	
 	
 	//Remove uma posição 

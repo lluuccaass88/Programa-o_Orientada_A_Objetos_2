@@ -32,6 +32,3 @@ iii. get(int pos): retorna elemento na posição
 iv. remove(int): remove e retorna elemento na posição passada por parâmetro
 v. remove(valor): remove o elemento passado por parâmetro
 vi. size() retorna o tamanho da lista
-
-
-
