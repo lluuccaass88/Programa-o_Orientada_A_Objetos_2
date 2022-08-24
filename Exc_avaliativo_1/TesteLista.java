@@ -34,7 +34,7 @@ public class TesteLista {
 		
 		System.out.println("==========Removendo um valor especifico (numero 6)==========");
 		//Removendo um valor especifico
-		lista.remove(Integer.valueOf(6));
+		System.out.println(lista.remove(Integer.valueOf(6)));
 		for(int i = 0; i < lista.size(); i++) {
 			System.out.println(lista.get(i));
 		}

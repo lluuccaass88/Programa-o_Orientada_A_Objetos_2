@@ -15,10 +15,10 @@ public class TesteListaVetor {
 			System.out.println(list.get(i));
 		}
 		
-		System.out.println("==========Adicionand0o na posicao 2 (entre o \"Matue\" e o \"Froid\")==========");
+		System.out.println("==========Adicionand0o na posicao 4 (Ultimo da lista)==========");
 		
-		//Adicionand0o na posição 2 (entre o "Bruna" e o "Juan")
-		list.add("Qualy", 2);
+		//Adicionand0o na posição 2 (Ultimo da lista)
+		list.add("Qualy", 4);
 		for(int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
@@ -26,7 +26,7 @@ public class TesteListaVetor {
 		System.out.println("==========Removendo da posicao 1==========");
 		
 		//Removendo da posição 1
-		list.remove(1);
+		System.out.println("Retorno da funcao remove: " + list.remove(1));
 		for(int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
@@ -34,7 +34,8 @@ public class TesteListaVetor {
 		System.out.println("==========Removendo o valor \"Dalsin\")==========");
 		
 		//Removendo o valor "Dalsin")
-		list.remove("Dalsin");
+		System.out.println("Retorno da funcao remove: " + list.remove("Dalsin"));
+		list.remove("Matue");
 		for(int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}

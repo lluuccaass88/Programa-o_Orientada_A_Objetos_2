@@ -14,28 +14,27 @@ public class ListaVetor<T> implements Lista<T>{
 	}
 		
 	@Override
-	public void add(T info) {
-		if(!this.verfEspaco())
-			throw new IllegalArgumentException(this.msgErro());
-		
-		this.vetValores[this.vetTamanho] = info;
-		this.vetTamanho++;	
-	}
-
-	@Override
 	public void add(T info, int pos) {		
 		if(!this.verfEspaco())
 			throw new IllegalArgumentException(this.msgErro());
 		
-		for(int i = this.vetTamanho; i > 0; i--) {
-			this.vetValores[i + 1] = this.vetValores[i];
-			if(i == pos) {
-				this.vetValores[i] = info;
-			}
-		}
+		int cont = this.vetTamanho;
 		
+		while(cont != pos) {
+			this.vetValores[cont] = this.vetValores[cont-1];
+			cont--;
+		}
+			
 		this.vetValores[pos] = info;
 		this.vetTamanho++;	
+	}
+		
+	@Override
+	public void add(T info) {
+		if(!this.verfEspaco())
+			throw new IllegalArgumentException(this.msgErro());
+		
+	this.add(info, this.vetTamanho);
 	}
 
 	@Override
@@ -48,7 +47,7 @@ public class ListaVetor<T> implements Lista<T>{
 
 	@Override
 	public T remove(int pos) {
-		if(this.vetTamanho < 1) 
+		if(this.vetTamanho < 1 || pos < 0 || pos > this.vetTamanho-1) 
 			throw new IllegalArgumentException(this.msgErro());
 		
 		T elemento = this.vetValores[pos];
@@ -68,17 +67,10 @@ public class ListaVetor<T> implements Lista<T>{
 		if (info == null)
 			return false;
 		
-		int cont = 0;
-		
-		for (T item : this.vetValores) {
-			if (item.equals(info)) {
-				for(int i = cont; i < this.vetTamanho; i++) {
-					this.vetValores[i] = this.vetValores[i+1];
-				}
-				this.vetTamanho--;
-				return true;
+		for(int i = this.vetTamanho - 1; i >= 0; i--) {
+			if (this.vetValores[i].equals(info)) {
+				this.remove(i);
 			}
-			cont++;
 		}
 							
 		return false;
@@ -95,7 +87,7 @@ public class ListaVetor<T> implements Lista<T>{
 		}else if(this.vetTamanho < 1) {
 			return "Vetor vazio";
 		}
-		return "Esta posição é invalida, por favor digite uma posição de 0 até " + (this.vetTamanho - 1);
+		return "Esta posicao e invalida, por favor digite uma posicao de 0 ate " + (this.vetTamanho - 1);
 	}
 	
 	private boolean verfEspaco() {

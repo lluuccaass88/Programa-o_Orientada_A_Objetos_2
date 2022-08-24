@@ -81,7 +81,7 @@ public class ListaEncadeada<T> implements Lista<T>{
 			return true;
 		}
 		
-		while(auxLista != null) {
+		while(auxLista.prox != null) {
 			auxAnt = auxLista;
 			auxLista = auxLista.prox;
 			if(auxLista.info.equals(info)) {
